@@ -68,6 +68,7 @@ import { MediaLoaderParams } from "../inflators/media-loader";
 import { preload } from "./preload";
 import { DirectionalLightParams, inflateDirectionalLight } from "../inflators/directional-light";
 import { AmbientLightParams, inflateAmbientLight } from "../inflators/ambient-light";
+import { PointLightParams, inflatePointLight } from "../inflators/point-light";
 import { ProjectionMode } from "./projection-mode";
 import { inflateSkybox, SkyboxParams } from "../inflators/skybox";
 import { inflateSpawner, SpawnerParams } from "../inflators/spawner";
@@ -226,6 +227,7 @@ interface InflatorFn {
 export interface ComponentData {
   ambientLight?: AmbientLightParams;
   directionalLight?: DirectionalLightParams;
+  pointLight?: PointLightParams;
   grabbable?: GrabbableParams;
   billboard?: { onlyY: boolean };
   simpleWater?: SimpleWaterParams;
@@ -372,6 +374,7 @@ export const commonInflators: Required<{ [K in keyof ComponentData]: InflatorFn 
   // inflators that create Object3Ds
   ambientLight: inflateAmbientLight,
   directionalLight: inflateDirectionalLight,
+  pointLight: inflatePointLight,
   simpleWater: inflateSimpleWater,
   mirror: inflateMirror
 };
