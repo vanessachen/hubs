@@ -13,7 +13,6 @@ import {
   HoldableButton,
   HoverButton,
   MakeKinematicOnRelease,
-  AnimationMixer,
   Networked,
   NetworkedTransform,
   Object3DTag,
@@ -319,7 +318,6 @@ export interface JSXComponentData extends ComponentData {
     captureDurLblRef: Ref;
     sndToggleRef: Ref;
   };
-  animationMixer?: any;
   mediaLoader?: MediaLoaderParams;
   sceneRoot?: boolean;
   sceneLoader?: { src: string };
@@ -404,7 +402,6 @@ const jsxInflators: Required<{ [K in keyof JSXComponentData]: InflatorFn }> = {
   objectMenu: createDefaultInflator(ObjectMenu),
   pdfMenu: createDefaultInflator(PDFMenu),
   cameraTool: createDefaultInflator(CameraTool, { captureDurIdx: 1 }),
-  animationMixer: createDefaultInflator(AnimationMixer),
   networkedVideo: createDefaultInflator(NetworkedVideo),
   videoMenu: createDefaultInflator(VideoMenu),
   videoMenuItem: createDefaultInflator(VideoMenuItem),
