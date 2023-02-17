@@ -169,8 +169,10 @@ async function fetchAppConfigAndEnvironmentVars() {
     appConfig.theme.themes = JSON.parse(appConfig.theme.themes);
   }
 
+  // console.log("I am the host: ", host);
+  // console.log(appConfig); // both console.log statements work
   // dev.reticulum.io doesn't run ita
-  if (host === "dev.reticulum.io") {
+  if (host === "dev.reticulum.io" || host === "vscapelabs.myhubs.net") { // now getting correct appConfig!! incorrect phoenix data but tis okay. Getting default rooms with reticulum atm
     return appConfig;
   }
 

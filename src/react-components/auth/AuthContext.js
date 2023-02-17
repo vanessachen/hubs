@@ -126,6 +126,7 @@ export function AuthContextProvider({ children, store }) {
     const runAsync = async () => {
       if (store.state.credentials && store.state.credentials.token) {
         const socket = await connectToReticulum();
+        // return false; // TESTING
         return checkIsAdmin(socket, store);
       }
 

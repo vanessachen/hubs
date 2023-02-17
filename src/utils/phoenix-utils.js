@@ -49,6 +49,7 @@ let invalidatedReticulumMetaThisSession = false;
 
 export function getReticulumFetchUrl(path, absolute = false, host = null, port = null) {
   if (host || hasReticulumServer()) {
+    console.log("*****host is inside getReticulumFetchUrl", host); // host is null rn even when I pass it in??
     return `https://${host || configs.RETICULUM_SERVER}${port ? `:${port}` : ""}${path}`;
   } else if (absolute) {
     resolverLink.href = path;
@@ -72,14 +73,19 @@ export function getUploadsUrl(path, absolute = false, host = null, port = null) 
 
 export async function getReticulumMeta() {
   if (!reticulumMeta) {
+    console.log("*********in not reticulum meta");
     // Initially look up version based upon page, avoiding round-trip, otherwise fetch.
     if (!invalidatedReticulumMetaThisSession && document.querySelector("meta[name='ret:version']")) {
+      console.log("********in NOT invalidatedReticulumMetaThisSession");
       reticulumMeta = {
         version: document.querySelector("meta[name='ret:version']").getAttribute("value"),
         pool: document.querySelector("meta[name='ret:pool']").getAttribute("value"),
         phx_host: document.querySelector("meta[name='ret:phx_host']").getAttribute("value")
       };
     } else {
+      console.log("*********in invalidatedReticulumMetaThisSession. Forcing host as vscapelabs.myhubs.net");
+      // await fetch(getReticulumFetchUrl("/api/v1/meta", undefined, "vscapelabs.myhubs.net")).then(async res => {
+      // reticulumMeta = {version: '1.0.0', pool: 'vscapelabs', phx_port: '4000', phx_host: 'vscapelabs.myhubs.net'}; // TESTING
       await fetch(getReticulumFetchUrl("/api/v1/meta")).then(async res => {
         reticulumMeta = await res.json();
       });
@@ -102,6 +108,7 @@ async function refreshDirectReticulumHostAndPort() {
   const qs = new URLSearchParams(location.search);
   let host = qs.get("phx_host");
   const reticulumMeta = await getReticulumMeta();
+  console.log("***********Reticulum Meta", reticulumMeta); // gets dev server for some reason!
   host = host || configs.RETICULUM_SOCKET_SERVER || reticulumMeta.phx_host;
   const port =
     qs.get("phx_port") ||

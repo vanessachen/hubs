@@ -27,6 +27,7 @@ export function HomePage() {
 
   const { results: favoriteRooms } = useFavoriteRooms();
   const { results: publicRooms } = usePublicRooms();
+  // console.log(publicRooms); // just the array of rooms --> I CAN HARD CODE MY DATA FOR NOW LOCALLY
 
   const sortedFavoriteRooms = Array.from(favoriteRooms).sort((a, b) => b.member_count - a.member_count);
   const sortedPublicRooms = Array.from(publicRooms).sort((a, b) => b.member_count - a.member_count);
