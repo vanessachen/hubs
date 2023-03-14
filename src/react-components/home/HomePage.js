@@ -20,6 +20,7 @@ import { SignInButton } from "./SignInButton";
 import { AppLogo } from "../misc/AppLogo";
 import { isHmc } from "../../utils/isHmc";
 import maskEmail from "../../utils/mask-email";
+import { WaitingListSection } from "./WaitingListSection";
 
 export function HomePage() {
   const auth = useContext(AuthContext);
@@ -99,6 +100,10 @@ export function HomePage() {
           </div>
         </div>
       </Container>
+      <Container >
+        <WaitingListSection />
+      </Container>
+
       {configs.feature("show_feature_panels") && (
         <Container className={classNames(styles.features, styles.colLg, styles.centerLg)}>
           <Column padding gap="xl" className={styles.card}>
