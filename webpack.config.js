@@ -329,6 +329,7 @@ module.exports = async (env, argv) => {
       link: path.join(__dirname, "src", "link.js"),
       discord: path.join(__dirname, "src", "discord.js"),
       cloud: path.join(__dirname, "src", "cloud.js"),
+      about: path.join(__dirname, "src", "about.js"),
       signin: path.join(__dirname, "src", "signin.js"),
       verify: path.join(__dirname, "src", "verify.js"),
       tokens: path.join(__dirname, "src", "tokens.js"),
@@ -366,6 +367,7 @@ module.exports = async (env, argv) => {
           { from: /^\/signin/, to: "/signin.html" },
           { from: /^\/discord/, to: "/discord.html" },
           { from: /^\/cloud/, to: "/cloud.html" },
+          { from: /^\/about/, to: "/about.html" },
           { from: /^\/verify/, to: "/verify.html" },
           { from: /^\/tokens/, to: "/tokens.html" },
           { from: /^\/whats-new/, to: "/whats-new.html" }
@@ -687,6 +689,9 @@ module.exports = async (env, argv) => {
       htmlPagePlugin({
         filename: "cloud.html",
         inject: "head"
+      }),
+      htmlPagePlugin({
+        filename: "about.html"
       }),
       htmlPagePlugin({
         filename: "signin.html"

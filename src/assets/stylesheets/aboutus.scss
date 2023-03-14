@@ -1,0 +1,24 @@
+@use "../../react-components/styles/theme.scss";
+
+.aboutUs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+
+  h1 {
+    font-size: theme.$font-size-2xl;
+    font-weight: theme.$font-weight-bold;
+    color: theme.$primary-color;
+    margin-bottom: 1em;
+  }
+
+  p {
+    font-size: theme.$font-size-lg;
+    text-align: justify;
+    line-height: 1.6;
+    max-width: 800px;
+  }
+}
