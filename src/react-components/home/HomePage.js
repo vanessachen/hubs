@@ -78,6 +78,9 @@ export function HomePage() {
           </div>
           <div className={styles.appInfo}>
             <div className={styles.appDescription}>{configs.translation("app-description")}</div>
+            {/* Can reference app-tagline here */}
+            <div className={styles.appSubheader}>{configs.translation("app-tagline")}</div> 
+
             {canCreateRooms && <CreateRoomButton />}
             <PWAButton />
           </div>
@@ -92,6 +95,7 @@ export function HomePage() {
               )}
               src={configs.image("home_background")}
             />
+            {/* <p>I AM TESTING A DEPLOY.</p> */}
           </div>
         </div>
       </Container>

@@ -1,3 +1,4 @@
+/* Vanessa's notes: can use this to simulate updates in top-level server */
 const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
@@ -172,7 +173,7 @@ async function fetchAppConfigAndEnvironmentVars() {
   // console.log("I am the host: ", host);
   // console.log(appConfig); // both console.log statements work
   // dev.reticulum.io doesn't run ita
-  if (host === "dev.reticulum.io" || host === "vscapelabs.myhubs.net") { // now getting correct appConfig!! incorrect phoenix data but tis okay. Getting default rooms with reticulum atm
+  if (host === "dev.reticulum.io") { // || host === "vscapelabs.myhubs.net") { // now getting correct appConfig!! incorrect phoenix data but tis okay. Getting default rooms with reticulum atm
     return appConfig;
   }
 
