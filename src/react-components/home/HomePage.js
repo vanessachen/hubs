@@ -21,6 +21,8 @@ import { AppLogo } from "../misc/AppLogo";
 import { isHmc } from "../../utils/isHmc";
 import maskEmail from "../../utils/mask-email";
 import { WaitingListSection } from "./WaitingListSection";
+import homeDemoV1 from "../../assets/video/VscapeDemo-website-v1.mp4";
+// import discordBotVideoMP4 from "../../assets/video/discord.mp4";
 
 export function HomePage() {
   const auth = useContext(AuthContext);
@@ -28,7 +30,6 @@ export function HomePage() {
 
   const { results: favoriteRooms } = useFavoriteRooms();
   const { results: publicRooms } = usePublicRooms();
-  // console.log(publicRooms); // just the array of rooms --> I CAN HARD CODE MY DATA FOR NOW LOCALLY
 
   const sortedFavoriteRooms = Array.from(favoriteRooms).sort((a, b) => b.member_count - a.member_count);
   const sortedPublicRooms = Array.from(publicRooms).sort((a, b) => b.member_count - a.member_count);
@@ -85,8 +86,8 @@ export function HomePage() {
             {canCreateRooms && <CreateRoomButton />}
             <PWAButton />
           </div>
-          <div className={styles.heroImageContainer}>
-            <img
+          <div className={styles.heroImageContainer} >
+            {/* <img
               alt={intl.formatMessage(
                 {
                   id: "home-page.hero-image-alt",
@@ -95,9 +96,13 @@ export function HomePage() {
                 { appName: configs.translation("app-name") }
               )}
               src={configs.image("home_background")}
-            />
+            /> */}
+            <video playsInline loop autoPlay muted style={{ borderRadius: '10px' }}>
+              <source src={homeDemoV1} type="video/mp4" />
+            </video>
             {/* <p>I AM TESTING A DEPLOY.</p> */}
           </div>
+          
         </div>
       </Container>
       <Container >
@@ -114,7 +119,7 @@ export function HomePage() {
             <p>
               <FormattedMessage
                 id="home-page.rooms-blurb"
-                defaultMessage="Share virtual spaces with your friends, co-workers, and communities. When you create a room with Hubs, you’ll have a private virtual meeting space that you can instantly share <b>- no downloads or VR headset necessary.</b>"
+                defaultMessage="Share virtual spaces with your friends, co-workers, and communities. When you create a room with Hubs, you’ll have a private virtual meeting space that you can instantly share."
                 values={{ b: wrapInBold }}
               />
             </p>

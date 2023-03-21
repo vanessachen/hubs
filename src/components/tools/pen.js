@@ -103,6 +103,7 @@ AFRAME.registerComponent("pen", {
   },
 
   init() {
+    console.log("pen init");
     this.timeSinceLastDraw = 0;
 
     this.lastPosition = new THREE.Vector3();

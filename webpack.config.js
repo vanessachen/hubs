@@ -170,8 +170,6 @@ async function fetchAppConfigAndEnvironmentVars() {
     appConfig.theme.themes = JSON.parse(appConfig.theme.themes);
   }
 
-  // console.log("I am the host: ", host);
-  // console.log(appConfig); // both console.log statements work
   // dev.reticulum.io doesn't run ita
   if (host === "dev.reticulum.io") { // || host === "vscapelabs.myhubs.net") { // now getting correct appConfig!! incorrect phoenix data but tis okay. Getting default rooms with reticulum atm
     return appConfig;
@@ -253,6 +251,7 @@ module.exports = async (env, argv) => {
     }
 
     if (env.localDev) {
+      console.log("i am in local dev mode");
       const localDevHost = "hubs.local";
       // Local Dev Environment (npm run local)
       Object.assign(process.env, {
@@ -307,6 +306,7 @@ module.exports = async (env, argv) => {
         "three/examples/js/libs/draco/gltf/draco_wasm_wrapper.js": dracoWasmWrapperPath,
         "three/examples/js/libs/basis/basis_transcoder.wasm": basisWasmPath,
         "three/examples/js/libs/draco/gltf/draco_decoder.wasm": dracoWasmPath
+        // "three/examples/jsm/utils/BufferGeometryUtils.js": path.resolve(__dirname, "./node_modules/three/examples/jsm/utils/BufferGeometryUtils.js")
       },
       // Allows using symlinks in node_modules
       symlinks: false,

@@ -111,7 +111,8 @@ function registerNetworkSchemas() {
         component: "media-pdf",
         property: "index"
       },
-      "pinnable"
+      "pinnable",
+      'textarea'
     ],
     nonAuthorizedComponents: [
       {
@@ -125,6 +126,9 @@ function registerNetworkSchemas() {
       {
         component: "media-pager",
         property: "index"
+      },
+      {
+        component: "textarea"
       }
     ]
   });

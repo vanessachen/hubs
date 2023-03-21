@@ -137,6 +137,8 @@ import "./components/avatar-audio-source";
 import "./components/avatar-inspect-collider";
 import "./components/video-texture-target";
 import "./components/mirror";
+import "./components/aframe-text-area";
+import "./custom-component-injection";
 
 import ReactDOM from "react-dom";
 import React from "react";
@@ -190,6 +192,8 @@ import { renderAsEntity } from "./utils/jsx-entity";
 import { VideoMenuPrefab } from "./prefabs/video-menu";
 import { ObjectMenuPrefab } from "./prefabs/object-menu";
 import { preload } from "./utils/preload";
+
+// require('aframe-textarea-component');
 
 window.APP = new App();
 renderAsEntity(APP.world, VideoMenuPrefab());
@@ -1132,6 +1136,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   APP.messageDispatch = messageDispatch;
   document.getElementById("avatar-rig").messageDispatch = messageDispatch;
 
+  scene.addEventListener("vanessa", (e)=>{
+    messageDispatch.log(LogMessageType.vanessaChanged);
+    console.log("vanessa2 log dispatch console");
+  });
+
   const oauthFlowPermsToken = Cookies.get(OAUTH_FLOW_PERMS_TOKEN_KEY);
   if (oauthFlowPermsToken) {
     Cookies.remove(OAUTH_FLOW_PERMS_TOKEN_KEY);
@@ -1171,6 +1180,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       presence: meta.presence,
       name: meta.profile.displayName
     });
+
   });
 
   events.on(`hub:leave`, ({ meta }) => {

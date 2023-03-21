@@ -93,13 +93,13 @@ export function Header({
                 </a>
               </li>
             )}
-            { 
+            {/* { 
             <li>
                 <a href="/about">
                   <FormattedMessage id="header.aboutus" defaultMessage="About Us" />
                 </a>
               </li> 
-            }
+            } */}
 
           </ul>
         </nav>

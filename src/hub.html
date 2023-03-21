@@ -12,7 +12,7 @@
     <link rel="manifest" href="/manifest.webmanifest">
     <!-- iOS (for "Add to Homescreen") -->
     <meta name="mobile-web-app-capable" content="yes">
-    <title>Room | App by Company</title>
+    <title>Room | App by Vscape</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"> 
     <!-- Google Analytics -->
@@ -68,6 +68,8 @@
         rotate-selected-object
     >
         <a-assets>
+
+
             <!-- Note our fork of aframe doesn't actually do any preloading with a-assets. These a-asset-items are only used for their src attribute. -->
             <a-asset-item id="drawing-pen" src="./assets/models/DrawingPen.glb"></a-asset-item>
             <a-asset-item id="spawn-point" src="./assets/models/spawn-point.glb"></a-asset-item>
@@ -278,7 +280,9 @@
                 </a-entity>
             </template>
 
+
             <template id="interactable-media">
+
                 <a-entity
                     class="interactable"
                     body-helper="type: dynamic; mass: 1; collisionFilterGroup: 1; collisionFilterMask: 25;"
@@ -295,7 +299,21 @@
                     position-at-border__freeze-unprivileged="target:.freeze-unprivileged-menu"
                     listed-media
                 >
+
+
+
                     <a-entity class="ui interactable-ui" layers="mask: 768; recursive: true;">
+
+                        <!-- <a-entity class="textarea" id="text-plane" position="0 1.6 -1" geometry="primitive: plane; width: 2; height: 0.8" material="color: #f0f0f0" textarea="cols: 20; rows: 4; text: TEST3 this is a 
+                        multiline textarea; backgroundColor: #fab402; color: white; selectionColor: black; disabledBackgroundColor: red; disabled: false;"></a-entity>
+                        <a-plane position="0 0 -4" rotation="-90 0 0" width="32" height="32" color="#7BC8A4"></a-plane> -->
+        
+
+                        <a-entity class="textarea" id="mytest2" position="0 1.5 -1.2" textarea="cols: 20; rows: 4; text: TEST2 this is a 
+                        multiline textarea; backgroundColor: #fab402; color: white; selectionColor: black; disabledBackgroundColor: red; disabled: false;"></a-entity>
+                        <a-plane src="#groundTexture" rotation="-90 0 0" height="100" width="100"></a-plane>
+                        <a-camera><a-cursor></a-cursor></a-camera>
+
                         <a-entity class="freeze-menu" visibility-while-frozen="withinDistance: 100; withPermission: spawn_and_move_media">
                             <a-entity
                                 mixin="rounded-text-action-button"
@@ -974,7 +992,7 @@
                 <a-entity visibility-while-frozen="requireHoverOnNonMobile: false;" rotation="30 0 0">
                     <a-entity class="leave-btn" position="0 0 0" scale="0.7 0.7 0.7" leave-room-button is-remote-hover-target tags="singleActionButton: true;">
                         <a-entity mixin="rounded-text-action-button" slice9="width: 0.8" scale="0.8 0.8 1.0">
-                            <a-entity text="value:leave room; textAlign:center;" text-raycast-hack position="0 0 0.001"></a-entity>
+                            <a-entity text="value:leave room THIS IS MY ROOM TEST; textAlign:center;" text-raycast-hack position="0 0 0.001"></a-entity>
                         </a-entity>
                     </a-entity>
                 </a-entity>
@@ -1162,6 +1180,11 @@
         </a-entity>
         <a-entity id="scene-preview-node">
         </a-entity>
+
+
+       
+
+        
     </a-scene>
 
     <div id="ui-root"></div>
