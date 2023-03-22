@@ -57,16 +57,16 @@ export default class SceneEntryManager {
 
   enterScene = async (enterInVR, muteOnEntry) => {
     console.log("vanessa test involveme quiz");
-    involvemeEmbedPopup.createTriggerEvent({
-      projectUrl: "test-iq-test",
-      organizationUrl: "https://vscape-labs.involve.me",
-      embedMode: "chatButton",
-      triggerEvent: "button",
-      popupSize: "large",
-      buttonTextColor: "#FFFFFF",
-      buttonColor: "#94a3b8",
-      icon: "speech-bubble",
-    })
+    // involvemeEmbedPopup.createTriggerEvent({
+    //   projectUrl: "test-iq-test",
+    //   organizationUrl: "https://vscape-labs.involve.me",
+    //   embedMode: "chatButton",
+    //   triggerEvent: "button",
+    //   popupSize: "large",
+    //   buttonTextColor: "#FFFFFF",
+    //   buttonColor: "#94a3b8",
+    //   icon: "speech-bubble",
+    // })
 
     console.log("Entering scene...");
     document.getElementById("viewing-camera").removeAttribute("scene-preview-camera");

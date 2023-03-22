@@ -134,7 +134,7 @@ AFRAME.registerComponent('textarea', {
       // MessageDispatch.log("roomEntryRequired");
       scene.emit("vanessa");
       console.log("should have emitted vanessa");
-      scene.emit("spawnKickButton", { position: "0 1.5 -2" });
+      scene.emit("spawnKickButton", { position: "0 5 0" });
       console.log("should have emitted spawnKickButton");
       this.focus.bind(this);
     });
