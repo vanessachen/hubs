@@ -137,8 +137,6 @@ import "./components/avatar-audio-source";
 import "./components/avatar-inspect-collider";
 import "./components/video-texture-target";
 import "./components/mirror";
-import "./components/aframe-text-area";
-import "./custom-component-injection";
 
 import ReactDOM from "react-dom";
 import React from "react";
@@ -193,7 +191,9 @@ import { VideoMenuPrefab } from "./prefabs/video-menu";
 import { ObjectMenuPrefab } from "./prefabs/object-menu";
 import { preload } from "./utils/preload";
 
-// require('aframe-textarea-component');
+import "./components/aframe-text-area";
+import "./custom-component-injection";
+import "./components/kick-button-spawner";
 
 window.APP = new App();
 renderAsEntity(APP.world, VideoMenuPrefab());

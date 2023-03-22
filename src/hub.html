@@ -25,6 +25,22 @@
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     }
     </script>
+
+    <script src="https://vscape-labs.involve.me/embed?type=popup"></script>
+    <!-- <script>
+        involvemeEmbedPopup.createTriggerEvent({
+            projectUrl: "test-iq-test",
+            organizationUrl: "https://vscape-labs.involve.me",
+            embedMode: "chatButton",
+            triggerEvent: "button",
+            popupSize: "medium",
+            buttonTextColor: "#FFFFFF",
+            buttonColor: "#94a3b8",
+            icon: "speech-bubble",
+        })
+    </script> -->
+
+
     <style>
         /* Ease the transition to the load screen by displaying a default overlay */
         #preload-overlay {
@@ -66,6 +82,8 @@
         freeze-controller
         personal-space-bubble="debug: false;"
         rotate-selected-object
+        custom-component-injection
+        kick-button-spawner
     >
         <a-assets>
 
@@ -276,6 +294,9 @@
                                 position="0 0 0.001"
                             ></a-entity>
                         </a-entity>
+
+                        <button class="involveme_popup" data-project="test-iq-test" data-embed-mode="popup" data-trigger-event="button" data-popup-size="medium" data-organization-url="https://vscape-labs.involve.me" >Launch popup</button>
+
                     </a-entity>
                 </a-entity>
             </template>
@@ -308,6 +329,9 @@
                         multiline textarea; backgroundColor: #fab402; color: white; selectionColor: black; disabledBackgroundColor: red; disabled: false;"></a-entity>
                         <a-plane position="0 0 -4" rotation="-90 0 0" width="32" height="32" color="#7BC8A4"></a-plane> -->
         
+                        <a-entity id="vanessakicktest" is-remote-hover-target tags="singleActionButton:true;" mixin="rounded-text-button" kick-button-spawner position="0 -0.5 .35" scale="8.8 8.8 8.8">
+                            <a-entity text="value:Kick; textAlign:center;" text-raycast-hack position="0 0 0.001"></a-entity>
+                        </a-entity>
 
                         <a-entity class="textarea" id="mytest2" position="0 1.5 -1.2" textarea="cols: 20; rows: 4; text: TEST2 this is a 
                         multiline textarea; backgroundColor: #fab402; color: white; selectionColor: black; disabledBackgroundColor: red; disabled: false;"></a-entity>
@@ -992,7 +1016,7 @@
                 <a-entity visibility-while-frozen="requireHoverOnNonMobile: false;" rotation="30 0 0">
                     <a-entity class="leave-btn" position="0 0 0" scale="0.7 0.7 0.7" leave-room-button is-remote-hover-target tags="singleActionButton: true;">
                         <a-entity mixin="rounded-text-action-button" slice9="width: 0.8" scale="0.8 0.8 1.0">
-                            <a-entity text="value:leave room THIS IS MY ROOM TEST; textAlign:center;" text-raycast-hack position="0 0 0.001"></a-entity>
+                            <a-entity text="value:leave room; textAlign:center;" text-raycast-hack position="0 0 0.001"></a-entity>
                         </a-entity>
                     </a-entity>
                 </a-entity>
