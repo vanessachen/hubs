@@ -30,16 +30,17 @@ AFRAME.registerComponent("kick-button-spawner", {
     this.el.appendChild(kickButton);
 
 
-    involvemeEmbedPopup.createTriggerEvent({
-      projectUrl: "test-iq-test",
-      organizationUrl: "https://vscape-labs.involve.me",
-      embedMode: "chatButton",
-      triggerEvent: "button",
-      popupSize: "large",
-      buttonTextColor: "#FFFFFF",
-      buttonColor: "#94a3b8",
-      icon: "speech-bubble",
-    })
+    // this one worked
+    // involvemeEmbedPopup.createTriggerEvent({
+    //   projectUrl: "test-iq-test",
+    //   organizationUrl: "https://vscape-labs.involve.me",
+    //   embedMode: "chatButton",
+    //   triggerEvent: "button",
+    //   popupSize: "large",
+    //   buttonTextColor: "#FFFFFF",
+    //   buttonColor: "#94a3b8",
+    //   icon: "speech-bubble",
+    // })
 
     console.log("vanessa hopefully did createTriggerEvent");
 

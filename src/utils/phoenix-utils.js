@@ -49,7 +49,6 @@ let invalidatedReticulumMetaThisSession = false;
 
 export function getReticulumFetchUrl(path, absolute = false, host = null, port = null) {
   if (host || hasReticulumServer()) {
-    console.log("*****host is inside getReticulumFetchUrl", host); // host is null rn even when I pass it in??
     return `https://${host || configs.RETICULUM_SERVER}${port ? `:${port}` : ""}${path}`;
   } else if (absolute) {
     resolverLink.href = path;
@@ -73,10 +72,8 @@ export function getUploadsUrl(path, absolute = false, host = null, port = null) 
 
 export async function getReticulumMeta() {
   if (!reticulumMeta) {
-    console.log("*********in not reticulum meta");
     // Initially look up version based upon page, avoiding round-trip, otherwise fetch.
     if (!invalidatedReticulumMetaThisSession && document.querySelector("meta[name='ret:version']")) {
-      console.log("********in NOT invalidatedReticulumMetaThisSession");
       reticulumMeta = {
         version: document.querySelector("meta[name='ret:version']").getAttribute("value"),
         pool: document.querySelector("meta[name='ret:pool']").getAttribute("value"),

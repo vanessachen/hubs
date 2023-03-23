@@ -194,6 +194,7 @@ import { preload } from "./utils/preload";
 import "./components/aframe-text-area";
 import "./custom-component-injection";
 import "./components/kick-button-spawner";
+import "./components/customtest/quiz-popup-button"
 
 window.APP = new App();
 renderAsEntity(APP.world, VideoMenuPrefab());
