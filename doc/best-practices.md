@@ -9,7 +9,7 @@
   }
   ```
 2. Import that component into `hub.js`. 
-3. Note: if you have an element injected directly into the scene like `<a-scene my-component> ... </a-scene>` then it should appear once on the scene. If you do `<a-entity mycomponent></a-entity>` there may be duplicates.
+3. Note: if you have an element injected directly into the scene like `<a-scene my-component> ... </a-scene>` then it should appear once on the scene *** but it cannot be interacted with appropriately! *** . If you do `<a-entity mycomponent></a-entity>` there may be duplicates.
 
 
 

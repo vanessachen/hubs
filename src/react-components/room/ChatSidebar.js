@@ -187,7 +187,8 @@ export const LogMessageType = {
   audioResumed: "audioResumed",
   joinFailed: "joinFailed",
   avatarChanged: "avatarChanged",
-  openedQuiz: "openedQuiz"
+  openedQuiz: "openedQuiz",
+  newFeaturePending: "newFeaturePending"
 };
 
 const logMessages = defineMessages({
@@ -279,6 +280,10 @@ const logMessages = defineMessages({
   [LogMessageType.openedQuiz]: {
     id: "chat-sidebar.log-message.opened-quiz",
     defaultMessage: "Quiz opened! Move your mouse off the screen to view it."
+  },
+  [LogMessageType.newFeaturePending]: {
+    id: "chat-sidebar.log-message.new-feature-pending",
+    defaultMessage: "We're working on this feature but it will be here soon!"
   }
 });
 

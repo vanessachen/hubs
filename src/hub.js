@@ -192,8 +192,8 @@ import { ObjectMenuPrefab } from "./prefabs/object-menu";
 import { preload } from "./utils/preload";
 
 import "./components/aframe-text-area";
-import "./custom-component-injection";
-import "./components/kick-button-spawner";
+import "./components/customtest/custom-component-injection";
+import "./components/customtest/kick-button-spawner";
 import "./components/customtest/quiz-popup-button"
 
 window.APP = new App();
@@ -1140,7 +1140,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   scene.addEventListener("vanessa", (e)=>{
     messageDispatch.log(LogMessageType.openedQuiz);
-    console.log("vanessa2 log dispatch console");
   });
 
   const oauthFlowPermsToken = Cookies.get(OAUTH_FLOW_PERMS_TOKEN_KEY);

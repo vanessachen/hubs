@@ -56,7 +56,6 @@ export default class SceneEntryManager {
   };
 
   enterScene = async (enterInVR, muteOnEntry) => {
-    console.log("vanessa test involveme quiz");
     // involvemeEmbedPopup.createTriggerEvent({
     //   projectUrl: "test-iq-test",
     //   organizationUrl: "https://vscape-labs.involve.me",

@@ -26,21 +26,7 @@
     }
     </script>
 
-    <script src="https://vscape-labs.involve.me/embed?type=popup"></script>
-    <!-- <script>
-        involvemeEmbedPopup.createTriggerEvent({
-            projectUrl: "test-iq-test",
-            organizationUrl: "https://vscape-labs.involve.me",
-            embedMode: "chatButton",
-            triggerEvent: "button",
-            popupSize: "medium",
-            buttonTextColor: "#FFFFFF",
-            buttonColor: "#94a3b8",
-            icon: "speech-bubble",
-        })
-    </script> -->
-
-
+    <!-- <script src="https://vscape-labs.involve.me/embed?type=popup"></script> -->
     <style>
         /* Ease the transition to the load screen by displaying a default overlay */
         #preload-overlay {
@@ -82,9 +68,6 @@
         freeze-controller
         personal-space-bubble="debug: false;"
         rotate-selected-object
-
-        kick-button-spawner
-
     >
         <a-assets>
 
@@ -321,27 +304,10 @@
                     position-at-border__freeze-unprivileged="target:.freeze-unprivileged-menu"
                     listed-media
                 >
-                <!-- <a-entity quiz-popup-button></a-entity> -->
-
                     <a-entity class="textarea" id="mytest2" position="0 1.5 -1.2" textarea="cols: 20; rows: 4; text: TEST2 this is a 
                     multiline textarea; backgroundColor: #fab402; color: white; selectionColor: black; disabledBackgroundColor: red; disabled: false;"></a-entity>
 
                     <a-entity class="ui interactable-ui" layers="mask: 768; recursive: true;">
-
-                        <!-- <a-entity class="textarea" id="text-plane" position="0 1.6 -1" geometry="primitive: plane; width: 2; height: 0.8" material="color: #f0f0f0" textarea="cols: 20; rows: 4; text: TEST3 this is a 
-                        multiline textarea; backgroundColor: #fab402; color: white; selectionColor: black; disabledBackgroundColor: red; disabled: false;"></a-entity>
-                        <a-plane position="0 0 -4" rotation="-90 0 0" width="32" height="32" color="#7BC8A4"></a-plane> -->
-        
-                        <!-- <a-entity id="vanessakicktest" is-remote-hover-target tags="singleActionButton:true;" mixin="rounded-text-button" kick-button-spawner position="0 -0.5 .35" scale="8.8 8.8 8.8">
-                            <a-entity text="value:Kick; textAlign:center;" text-raycast-hack position="0 0 0.001"></a-entity>
-                        </a-entity> -->
-                        <!-- <a-entity quiz-popup-button></a-entity>
-
-
-                        <a-entity class="textarea" id="mytest2" position="0 1.5 -1.2" textarea="cols: 20; rows: 4; text: TEST2 this is a 
-                        multiline textarea; backgroundColor: #fab402; color: white; selectionColor: black; disabledBackgroundColor: red; disabled: false;"></a-entity>
-                        <a-plane src="#groundTexture" rotation="-90 0 0" height="100" width="100"></a-plane>
-                        <a-camera><a-cursor></a-cursor></a-camera> -->
 
                         <a-entity quiz-popup-button></a-entity>
 
