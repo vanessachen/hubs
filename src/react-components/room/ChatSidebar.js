@@ -187,7 +187,7 @@ export const LogMessageType = {
   audioResumed: "audioResumed",
   joinFailed: "joinFailed",
   avatarChanged: "avatarChanged",
-  vanessaChanged: "vanessaChanged"
+  openedQuiz: "openedQuiz"
 };
 
 const logMessages = defineMessages({
@@ -276,9 +276,9 @@ const logMessages = defineMessages({
     id: "chat-sidebar.log-message.avatar-changed",
     defaultMessage: "Your avatar has been changed."
   },
-  [LogMessageType.vanessaChanged]: {
-    id: "chat-sidebar.log-message.vanessa-changed",
-    defaultMessage: "Vanessa Changed."
+  [LogMessageType.openedQuiz]: {
+    id: "chat-sidebar.log-message.opened-quiz",
+    defaultMessage: "Quiz opened! Move your mouse off the screen to view it."
   }
 });
 

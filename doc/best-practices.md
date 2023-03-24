@@ -1,3 +1,48 @@
+## Vanessa's Notes
+### Creating Custom Components:
+1. Register custom component like so:
+  ```js
+  AFRAME.registerComponent("bad-example", {
+    init() {
+      this.timeLabel = this.el.querySelector(".video-time-label");
+    }
+  }
+  ```
+2. Import that component into `hub.js`. 
+3. Note: if you have an element injected directly into the scene like `<a-scene my-component> ... </a-scene>` then it should appear once on the scene. If you do `<a-entity mycomponent></a-entity>` there may be duplicates.
+
+
+
+### Interacting with the scene
+* Example of button click:
+`    this.el.object3D.addEventListener("interact", () => { 
+      this.openQuizPopup();
+    });
+`
+* Emit event from scene which can be listened to from another component:
+    ```js
+    // register component that will react to event and spawn button
+    AFRAME.registerComponent("kick-button-spawner", {
+      init: function () {
+        this.el.addEventListener("spawnKickButton", (event) => {
+          this.spawnKickButton(event.detail.position);
+        });
+      },
+      ....
+    }
+    ```
+
+    ```js
+    // from another file, select the scene and emit 
+    const scene = document.querySelector("a-scene");
+    ```
+### Customizations 
+* Adding custom log messages:
+  1. Add new message to `export const LogMessageType = { ... }` in  `ChatSidebar.js` or create new set of log messages in similar fashion.
+  2. Dispatch message: `messageDispatch.log(LogMessageType.openedQuiz);`
+
+
+
 This is a set of random little best practices we have come to endorse over the years. They are examples of things that have often come up in PR reviews or patterns we have started to solidify on. There are plenty of counter examples of these in the codebase, they are probably mostly unintentional. Also, most of these are more suggestions than hard rules.
 
 These pertain mostly to the "in room experience" or "engine" code. For best practices in the React UI code, see [UI Best Practices](ui-best-practices.md)

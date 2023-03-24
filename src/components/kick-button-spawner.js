@@ -23,7 +23,6 @@ AFRAME.registerComponent("kick-button-spawner", {
     const kickButtonText = document.createElement("a-entity");
     kickButtonText.setAttribute("text", "value:Vanessa's temp button; textAlign:center;");
     kickButtonText.setAttribute("text-raycast-hack", "");
-    // kickButtonText.setAttribute("visible-if-permitted", "kick_users");
     kickButtonText.setAttribute("position", "0 0 0");
 
     kickButton.appendChild(kickButtonText);

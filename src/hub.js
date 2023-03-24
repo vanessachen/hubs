@@ -605,6 +605,7 @@ function handleHubChannelJoined(entryManager, hubChannel, messageDispatch, data)
 
       if (!isBotMode) {
         objectsScene.appendChild(objectsEl);
+        scene.emit("loadedAllSceneObjects");
       }
     },
     { once: true }
@@ -1138,7 +1139,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("avatar-rig").messageDispatch = messageDispatch;
 
   scene.addEventListener("vanessa", (e)=>{
-    messageDispatch.log(LogMessageType.vanessaChanged);
+    messageDispatch.log(LogMessageType.openedQuiz);
     console.log("vanessa2 log dispatch console");
   });
 
