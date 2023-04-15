@@ -1138,7 +1138,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   APP.messageDispatch = messageDispatch;
   document.getElementById("avatar-rig").messageDispatch = messageDispatch;
 
-  scene.addEventListener("vanessa", (e)=>{
+  scene.addEventListener("quizOpen", (e)=>{
     messageDispatch.log(LogMessageType.openedQuiz);
   });
 

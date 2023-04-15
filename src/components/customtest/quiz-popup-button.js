@@ -30,8 +30,7 @@ AFRAME.registerComponent("quiz-popup-button", {
       // Listen for clicks on the button
       quizButton.object3D.addEventListener("interact", () => { 
         this.openQuizPopup();
-        scene.emit("vanessa");
-        console.log("should have emitted vanessa");
+        scene.emit("quizOpen");
       });
     });
   },

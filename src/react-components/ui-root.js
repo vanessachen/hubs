@@ -100,10 +100,12 @@ import { NotificationsContainer } from "./room/NotificationsContainer";
 import { usePermissions } from "./room/usePermissions";
 
 import Chatbot from "react-chatbot-kit";
-import config from "../chatbot/chatbotConfig";
-import MessageParser from "../chatbot/MessageParser";
-import ActionProvider from "../chatbot/ActionProvider";
+import config from "../components/customtest/chatbot/chatbotConfig";
+import MessageParser from "../components/customtest/chatbot/MessageParser";
+import ActionProvider from "../components/customtest/chatbot/ActionProvider";
 import { LogMessageType } from "./room/ChatSidebar";
+import { Sidebar } from "./sidebar/Sidebar";
+import { CustomPopup } from "../components/customtest/CustomPopup";
 
 const avatarEditorDebug = qsTruthy("avatarEditorDebug");
 
@@ -209,7 +211,8 @@ class UIRoot extends Component {
     sidebarId: null,
     presenceCount: 0,
     chatPrefix: "",
-    chatAutofocus: false
+    chatAutofocus: false,
+    showBot: false
   };
 
   constructor(props) {
@@ -220,7 +223,14 @@ class UIRoot extends Component {
     // An exit handler that discards event arguments and can be cleaned up.
     this.exitEventHandler = () => this.props.exitScene();
     this.mediaDevicesManager = APP.mediaDevicesManager;
+
   }
+
+  toggleBot = () => {
+    this.setState({ showBot: !this.state.showBot });
+    this.props.hubChannel.sendMessage("New Feature Pending");
+    // this.toggleSidebar("objects"); // vanessa testing: it does open the objects sidebar. Can prob make a custom sidebar for the chat!
+  };
 
   componentDidUpdate(prevProps) {
     const { hubChannel, showSignInDialog } = this.props;
@@ -1620,27 +1630,34 @@ class UIRoot extends Component {
                             initialPresence={getPresenceProfileForSession(this.props.presences, this.props.sessionId)}
                           />
                         )}
-
-                        {/* <Chatbot
-                          config={config}
-                          actionProvider={ActionProvider}
-                          messageParser={MessageParser}
-                        /> */}
-                        <button
-                          className="app-chatbot-button"
-                          onClick={() => this.props.messageDispatch.log(LogMessageType.newFeaturePending)} // this.props.hubChannel.sendMessage("New Feature Pending")}// toggleBot((prev) => !prev)}
-                        >
-                          <div>VBot</div>
-                          <svg viewBox="0 0 640 5012" className="app-chatbot-button-icon">
-                            <path d="M192,408h64V360H192ZM576,192H544a95.99975,95.99975,0,0,0-96-96H344V24a24,24,0,0,0-48,0V96H192a95.99975,95.99975,0,0,0-96,96H64a47.99987,47.99987,0,0,0-48,48V368a47.99987,47.99987,0,0,0,48,48H96a95.99975,95.99975,0,0,0,96,96H448a95.99975,95.99975,0,0,0,96-96h32a47.99987,47.99987,0,0,0,48-48V240A47.99987,47.99987,0,0,0,576,192ZM96,368H64V240H96Zm400,48a48.14061,48.14061,0,0,1-48,48H192a48.14061,48.14061,0,0,1-48-48V192a47.99987,47.99987,0,0,1,48-48H448a47.99987,47.99987,0,0,1,48,48Zm80-48H544V240h32ZM240,208a48,48,0,1,0,48,48A47.99612,47.99612,0,0,0,240,208Zm160,0a48,48,0,1,0,48,48A47.99612,47.99612,0,0,0,400,208ZM384,408h64V360H384Zm-96,0h64V360H288Z"></path>
-                          </svg>
-                        </button>
-
                       </>
                     )}
                     <ChatToolbarButtonContainer
                       onClick={() => this.toggleSidebar("chat", { chatPrefix: "", chatAutofocus: false })}
                     />
+                    {this.state.showBot && (
+                        // <div className="app-chatbot-container">
+                        //   <Chatbot
+                        //     config={config}
+                        //     messageParser={MessageParser}
+                        //     actionProvider={ActionProvider}
+                        //   />
+                        // </div>
+                        <CustomPopup isVisible={this.state.showBot} onClose={this.toggleBot}>
+                        </CustomPopup>
+                    )}
+                    <button
+                      className="app-chatbot-button"
+                      onClick={this.toggleBot}
+                      // onClick={() => this.props.messageDispatch.log(LogMessageType.newFeaturePending)} // this.props.hubChannel.sendMessage("New Feature Pending")}// toggleBot((prev) => !prev)}
+                    >
+                      <div>VBot</div>
+                      <svg viewBox="0 0 640 5012" className="app-chatbot-button-icon">
+                        <path d="M192,408h64V360H192ZM576,192H544a95.99975,95.99975,0,0,0-96-96H344V24a24,24,0,0,0-48,0V96H192a95.99975,95.99975,0,0,0-96,96H64a47.99987,47.99987,0,0,0-48,48V368a47.99987,47.99987,0,0,0,48,48H96a95.99975,95.99975,0,0,0,96,96H448a95.99975,95.99975,0,0,0,96-96h32a47.99987,47.99987,0,0,0,48-48V240A47.99987,47.99987,0,0,0,576,192ZM96,368H64V240H96Zm400,48a48.14061,48.14061,0,0,1-48,48H192a48.14061,48.14061,0,0,1-48-48V192a47.99987,47.99987,0,0,1,48-48H448a47.99987,47.99987,0,0,1,48,48Zm80-48H544V240h32ZM240,208a48,48,0,1,0,48,48A47.99612,47.99612,0,0,0,240,208Zm160,0a48,48,0,1,0,48,48A47.99612,47.99612,0,0,0,400,208ZM384,408h64V360H384Zm-96,0h64V360H288Z"></path>
+                      </svg>
+                    </button>
+
+
                     {entered && isMobileVR && (
                       <ToolbarButton
                         className={styleUtils.hideLg}
