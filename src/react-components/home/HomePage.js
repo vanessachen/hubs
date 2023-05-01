@@ -100,7 +100,6 @@ export function HomePage() {
             <video playsInline loop autoPlay muted style={{ borderRadius: '10px' }}>
               <source src={homeDemoV1} type="video/mp4" />
             </video>
-            {/* <p>I AM TESTING A DEPLOY.</p> */}
           </div>
           
         </div>
