@@ -191,10 +191,7 @@ import { VideoMenuPrefab } from "./prefabs/video-menu";
 import { ObjectMenuPrefab } from "./prefabs/object-menu";
 import { preload } from "./utils/preload";
 
-import "./components/aframe-text-area";
-import "./components/customtest/custom-component-injection";
-import "./components/customtest/kick-button-spawner";
-import "./components/customtest/quiz-popup-button"
+// import "./components/customtest/quiz-popup-button";
 
 window.APP = new App();
 renderAsEntity(APP.world, VideoMenuPrefab());

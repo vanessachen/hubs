@@ -1,6 +1,6 @@
 AFRAME.registerComponent("kick-button-spawner", {
   init: function () {
-    console.log("vanessa init kick-button-spawner");
+    // console.log("vanessa init kick-button-spawner");
     this.el.addEventListener("spawnKickButton", (event) => {
       this.spawnKickButton(event.detail.position);
     });
