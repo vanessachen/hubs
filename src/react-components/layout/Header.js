@@ -100,6 +100,11 @@ export function Header({
                 </a>
               </li> 
             } */}
+            <a href="https://form.jotform.com/231206758046051">
+              <button className={styles.scheduleSessionButton}>
+                Schedule a Session
+              </button>
+            </a>
 
           </ul>
         </nav>

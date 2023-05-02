@@ -67,10 +67,12 @@ export function HomePage() {
                   defaultMessage="Signed in as {email}"
                   values={{ email: maskEmail(email) }}
                 />
+                
               </span>
               <a href="#" onClick={auth.signOut} className={styles.mobileSignOut}>
                 <FormattedMessage id="header.sign-out" defaultMessage="Sign Out" />
               </a>
+
             </div>
           ) : (
             <SignInButton mobile />
@@ -83,7 +85,7 @@ export function HomePage() {
             {/* Can reference app-tagline here */}
             <div className={styles.appSubheader}>{configs.translation("app-tagline")}</div> 
 
-            {canCreateRooms && <CreateRoomButton />}
+            {canCreateRooms && <CreateRoomButton /> }
             <PWAButton />
           </div>
           <div className={styles.heroImageContainer} >
