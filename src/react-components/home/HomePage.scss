@@ -19,6 +19,7 @@
 
 
 :local(.logo-container) {
+  // seems like this only shows up on smaller screens
   display: flex;
   justify-content: center;
   padding: 20px;

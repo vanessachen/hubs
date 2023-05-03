@@ -9,6 +9,7 @@ import { Container } from "./Container";
 import { SocialBar } from "../home/SocialBar";
 import { SignInButton } from "../home/SignInButton";
 import { AppLogo } from "../misc/AppLogo";
+import { ScheduleSessionButton } from "../home/ScheduleSessionButton";
 
 export function Header({
   showCloud,
@@ -100,11 +101,11 @@ export function Header({
                 </a>
               </li> 
             } */}
-            <a href="https://form.jotform.com/231206758046051">
+            {/* <a href="https://form.jotform.com/231206758046051">
               <button className={styles.scheduleSessionButton}>
                 Schedule a Session
               </button>
-            </a>
+            </a> */}
 
           </ul>
         </nav>
@@ -125,6 +126,7 @@ export function Header({
           ) : (
             <SignInButton />
           )}
+          <ScheduleSessionButton />
         </div>
         {isHmc ? <SocialBar mobile /> : null}
       </Container>

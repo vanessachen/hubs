@@ -25,7 +25,7 @@ header {
 
     li {
       &:first-child {
-        padding-top: 20px;
+        // padding-top: 20px; // this made the logo too low
 
         @media(min-width: theme.$breakpoint-lg) {
           img {
@@ -102,13 +102,20 @@ header {
 
 :local(.home-link) {
   display: inline-block;
-  width: 124px;
-  height: 83px;
+  // width: 124px; // this is so weird...
+  // height: 83px
+  width: 80%;
+  height: 50px;
 
   @media(min-width: theme.$breakpoint-lg) {
     img {
       height: 32px;
     }
+  }
+
+  @media (max-width: theme.$breakpoint-lg) {
+    // don't display this on smaller screens
+    display: none;
   }
 }
 

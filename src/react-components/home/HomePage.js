@@ -23,6 +23,7 @@ import maskEmail from "../../utils/mask-email";
 import { WaitingListSection } from "./WaitingListSection";
 import homeDemoV1 from "../../assets/video/VscapeDemo-website-v1.mp4";
 // import discordBotVideoMP4 from "../../assets/video/discord.mp4";
+import { ScheduleSessionButton } from "./ScheduleSessionButton";
 
 export function HomePage() {
   const auth = useContext(AuthContext);
@@ -75,8 +76,9 @@ export function HomePage() {
 
             </div>
           ) : (
-            <SignInButton mobile />
+            <SignInButton mobile /> // mobile is a prop
           )}
+          <ScheduleSessionButton mobile />
           <div className={styles.logoContainer}>
             <AppLogo />
           </div>
