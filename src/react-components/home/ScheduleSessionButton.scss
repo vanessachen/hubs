@@ -49,27 +49,3 @@
     display: none;
   }
 }
-
-// :local(.schedule-session-button) {
-//   background-color: #007bff; // Match the color of the "Explore Now" button
-//   border: none;
-//   color: white;
-//   text-align: center;
-//   display: inline-block;
-//   font-size: 16px;
-//   margin: 4px 2px;
-//   cursor: pointer;
-//   padding: 10px 24px;
-//   text-decoration: none;
-//   border-radius: 4px;
-//   transition-duration: 0.4s;
-
-//   &:hover {
-//     background-color: #0069d9; // Slightly darker blue color on hover
-//     color: white;
-//   }
-
-//   @media (min-width: theme.$breakpoint-lg) {
-//     align-self: flex-start;
-//   }
-// }

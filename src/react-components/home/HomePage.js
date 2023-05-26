@@ -21,7 +21,7 @@ import { AppLogo } from "../misc/AppLogo";
 import { isHmc } from "../../utils/isHmc";
 import maskEmail from "../../utils/mask-email";
 import { WaitingListSection } from "./WaitingListSection";
-import homeDemoV1 from "../../assets/video/VscapeDemo-website-v1.mp4";
+import homeDemoV1 from "../../assets/video/VscapeDemo5.3.23-shortenededit.mp4";
 // import discordBotVideoMP4 from "../../assets/video/discord.mp4";
 import { ScheduleSessionButton } from "./ScheduleSessionButton";
 
@@ -91,16 +91,6 @@ export function HomePage() {
             <PWAButton />
           </div>
           <div className={styles.heroImageContainer} >
-            {/* <img
-              alt={intl.formatMessage(
-                {
-                  id: "home-page.hero-image-alt",
-                  defaultMessage: "Screenshot of {appName}"
-                },
-                { appName: configs.translation("app-name") }
-              )}
-              src={configs.image("home_background")}
-            /> */}
             <video playsInline loop autoPlay muted style={{ borderRadius: '10px' }}>
               <source src={homeDemoV1} type="video/mp4" />
             </video>
