@@ -4,7 +4,7 @@ import { FormattedMessage } from "react-intl";
 import styles from "./ScheduleSessionButton.scss";
 import { Button } from "../input/Button";
 
-export function ScheduleSessionButton({ mobile, link = "https://form.jotform.com/231206758046051" }) {
+export function ScheduleSessionButton({ mobile, link = "https://www.activityhero.com/widgets/6712/hosted" }) { // previously: https://form.jotform.com/231206758046051
   return (
     <a href={link}>
         <Button className={mobile ? styles.mobileScheduleSession : styles.ScheduleSessionButton}>

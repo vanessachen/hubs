@@ -37,7 +37,7 @@ const WEBCAM_SIMULCAST_ENCODINGS = [
 // Used for simulcast screen sharing.
 const SCREEN_SHARING_SIMULCAST_ENCODINGS = [
   { dtx: true, maxBitrate: 1500000 },
-  { dtx: true, maxBitrate: 6000000 }
+  { dtx: true, maxBitrate: 6000000, scalabilityMode: "L1T3" }
 ];
 
 export const DIALOG_CONNECTION_CONNECTED = "dialog-connection-connected";
@@ -852,15 +852,33 @@ export class DialogAdapter extends EventEmitter {
 
   async enableShare(track) {
     // stopTracks = false because otherwise the track will end during a temporary disconnect
+    // this._shareProducer = await this._sendTransport.produce({
+    //   track,
+    //   stopTracks: false,
+    //   codecOptions: { videoGoogleStartBitrate: 2000 },
+    //   encodings: SCREEN_SHARING_SIMULCAST_ENCODINGS,
+    //   zeroRtpOnPause: true,
+    //   disableTrackOnPause: true,
+    //   appData: {
+    //     share: true
+    //   }
+    // });
+
     this._shareProducer = await this._sendTransport.produce({
       track,
       stopTracks: false,
-      codecOptions: { videoGoogleStartBitrate: 1000 },
-      encodings: SCREEN_SHARING_SIMULCAST_ENCODINGS,
+      codecOptions: {
+          videoGoogleMinBitrate: 12000,
+          videoGoogleStartBitrate: 12000,
+          videoGoogleMaxBitrate: 6000000
+      },
+      encodings: [
+          { dtx: true, maxBitrate: 6000000, priority: "high", maxFramerate: 30 }
+      ],
       zeroRtpOnPause: true,
       disableTrackOnPause: true,
       appData: {
-        share: true
+          share: true
       }
     });
 

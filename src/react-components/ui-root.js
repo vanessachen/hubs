@@ -227,7 +227,7 @@ class UIRoot extends Component {
   }
 
   toggleBot = () => {
-    this.setState({ showBot: !this.state.showBot });
+    // this.setState({ showBot: !this.state.showBot }); // hide this for now.
     this.props.hubChannel.sendMessage("New Feature Pending");
     // this.toggleSidebar("objects"); // vanessa testing: it does open the objects sidebar. Can prob make a custom sidebar for the chat!
   };
